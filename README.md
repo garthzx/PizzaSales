@@ -34,8 +34,6 @@ dotnet ef database update
 dotnet run
 ```
 
-Upon entering `dotnet run`, the program will automatically import the CSV files into the database.
-
 The API will be available at `http://localhost:5098` based on the project's `launchSettings.json`.
 The Swagger link can be accessed in this link: [Swagger Index URL](http://localhost:5098/swagger/index.html)
 
@@ -52,13 +50,13 @@ npm install
 ```bash
 ng serve
 ```
-Visit `http://localhost:4200` in your browser.
+Visit `http://localhost:58613` in your browser. This might change on your machine. Check on `ng serve`'s output instead.
 
 ## Dependencies
 - .NET 8, Entity Framework Core, CsvHelper
 - Angular, Angular Router, HttpClient, ngx-charts, Bootstrap 5, etc.
 
 ## Notes
-- Ensure the API allows CORS from `http://localhost:4200`
+- The API already allows CORS from `http://localhost:4200:58613`. If the port changes, go the Program.cs file of the API and set the correct port. Make sure to re-run `dotnet run`.
 - The application will seed the database with data from the CSV on first run
 - All logic is modular and follows clean architecture principles
