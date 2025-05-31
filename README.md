@@ -57,6 +57,6 @@ Visit `http://localhost:58613` in your browser. This might change on your machin
 - Angular, Angular Router, HttpClient, ngx-charts, Bootstrap 5, etc.
 
 ## Notes
-- The API already allows CORS from `http://localhost:4200:58613`. If the port changes, go the Program.cs file of the API and set the correct port. Make sure to re-run `dotnet run`.
+- The API already allows CORS from `http://localhost:58613`. If the port changes, go the Program.cs file of the API and set the correct port. Make sure to re-run `dotnet run`.
 - The application will seed the database with data from the CSV on first run
 - All logic is modular and follows clean architecture principles
