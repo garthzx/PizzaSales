@@ -61,13 +61,11 @@ namespace Infrastructure.Data {
             context.Database.OpenConnection();
             try {
                 if (context.PizzaTypes.Any()) return; // Avoid duplicate seed
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT PizzaTypes ON");
 
                 var pizzaTypes = CsvImporter.ImportPizzaTypesFromCsv(csvPath + "\\SeedData\\pizza_types.csv");
                 context.PizzaTypes.AddRange(pizzaTypes);
 
                 context.SaveChanges();
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT PizzaTypes OFF");
 
             }
             catch (Exception) {
@@ -82,14 +80,11 @@ namespace Infrastructure.Data {
             context.Database.OpenConnection();
             try {
                 if (context.Pizzas.Any()) return; // Avoid duplicate
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Pizzas ON");
 
                 var pizzas = CsvImporter.ImportPizzasFromCsv(csvPath + "\\SeedData\\pizzas.csv");
                 context.Pizzas.AddRange(pizzas);
 
                 context.SaveChanges();
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Pizzas OFF");
-
             }
             catch (Exception) {
                 throw;
