@@ -17,7 +17,6 @@ namespace API
                 options.AddPolicy("AllowFrontend",
                     policy => {
                         policy.WithOrigins("http://localhost:58613").AllowAnyHeader().AllowAnyMethod();
-                        policy.WithOrigins("http://localhost:5098").AllowAnyHeader().AllowAnyMethod();
                     });
         });
 

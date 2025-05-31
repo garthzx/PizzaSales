@@ -42,7 +42,7 @@ export interface BestSeller {
   providedIn: 'root',
 })
 export class OrderService {
-  private apiUrl = 'https://localhost:44398/api'; // Adjust if needed
+  private apiUrl = 'http://localhost:5098/api'; // Adjust if needed
 
   constructor(private http: HttpClient) { }
 

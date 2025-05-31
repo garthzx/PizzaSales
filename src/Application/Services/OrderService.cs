@@ -23,7 +23,6 @@ namespace Application.Services {
                             .Include(o => o.OrderDetails)
                             .ThenInclude(od => od.Pizza)
                             .ThenInclude(p => p.PizzaType)
-                            .Take(20)
                             .ToListAsync();
         }
         public async Task<IEnumerable<PeakTime>> GetPeakTimeDataAsync() {
