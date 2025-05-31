@@ -1,0 +1,70 @@
+<!-- Chart Section -->
+<div class="order-list-container">
+  <div class="row">
+    <div class="col-md-7 border p-2">
+      <h3 class="text-decoration-underline">Orders</h3>
+      <table id="ordersTable" class="display">
+        <thead>
+          <tr>
+            <th>Order Id</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Order Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.id }}</td>
+            <td>{{ order.date }}</td>
+            <td>{{ order.time }}</td>
+            <td>
+              <div *ngFor="let orderDetails of order.orderDetails">
+                <div>
+                  {{orderDetails.quantity}}x {{ orderDetails.pizza.pizzaType.name }} - {{ orderDetails.pizza.pizzaType.category }}<br />
+                </div>
+                <div style="margin-left: 24px; font-size: 10px;">
+                  Ingredients: {{ orderDetails.pizza.pizzaType.ingredients }}
+                </div>
+
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5">
+      <div *ngIf="hourlySalesData.length > 0" class="chart-container border p-2 mb-4">
+        <h3 class="text-decoration-underline">Hourly Sales</h3>
+        <ngx-charts-line-chart [view]="view"
+                               [scheme]="'cool'"
+                               [results]="hourlySalesData"
+                               [gradient]="gradient"
+                               [xAxis]="showXAxis"
+                               [yAxis]="showYAxis"
+                               [legend]="showLegend"
+                               [showXAxisLabel]="showXAxisLabel"
+                               [showYAxisLabel]="showYAxisLabel"
+                               [xAxisLabel]="xAxisLabel"
+                               [yAxisLabel]="yAxisLabel"
+                               [autoScale]="autoScale">
+        </ngx-charts-line-chart>
+      </div>
+      <div *ngIf="top10Pizzas.length > 0" class="chart-container border p-2">
+        <h3 class="text-decoration-underline">Top 10 Best Sellers</h3>
+        <ngx-charts-bar-vertical [view]="view"
+                                 [results]="top10Pizzas"
+                                 [xAxis]="showXAxis"
+                                 [yAxis]="showYAxis"
+                                 [gradient]="gradient"
+                                 [showXAxisLabel]="showXAxisLabel"
+                                 [xAxisLabel]="xAxisLabelTop10"
+                                 [showYAxisLabel]="showYAxisLabel"
+                                 [yAxisLabel]="yAxisLabelTop10"
+                                 [roundEdges]="false"
+                                 [showDataLabel]="false">
+        </ngx-charts-bar-vertical>
+      </div>
+    </div>
+  </div>
+
+</div>
