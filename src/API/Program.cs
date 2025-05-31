@@ -15,8 +15,11 @@ namespace API
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowFrontend",
-                    policy => policy.WithOrigins("http://localhost:58613").AllowAnyHeader().AllowAnyMethod());
-            });
+                    policy => {
+                        policy.WithOrigins("http://localhost:58613").AllowAnyHeader().AllowAnyMethod();
+                        policy.WithOrigins("http://localhost:5098").AllowAnyHeader().AllowAnyMethod();
+                    });
+        });
 
 
             // Add services to the container.

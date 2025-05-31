@@ -25,7 +25,11 @@ cd src/API
 ```bash
 dotnet restore
 ```
-3. Run the API:
+3. Update the database:
+```bash
+dotnet ef database update
+```
+4. Run the API:
 ```bash
 dotnet run
 ```
@@ -36,9 +40,9 @@ The API will be available at `http://localhost:5098` based on the project's `lau
 The Swagger link can be accessed in this link: [Swagger Index URL](http://localhost:5098/swagger/index.html)
 
 ### Frontend
-1. Navigate to the Angular project folder:
+1. From the root directory, navigate to the Angular project:
 ```bash
-cd UI/pizza-sales-ui
+cd PizzaSalesUI
 ```
 2. Install dependencies:
 ```bash
